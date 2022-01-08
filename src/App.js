@@ -15,7 +15,7 @@ function App() {
         palette: {
           mode: prefersDarkMode ? 'dark' : 'light',
         },
-      }
+      } 
         ),
     [prefersDarkMode],
   );
