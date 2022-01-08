@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
+import {Paper, Switch} from '@mui/material/';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -10,14 +11,13 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import DesktopWindows from '@mui/icons-material/DesktopWindows';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import devshopLogo from '../../common/pictures/devshop-logo-white.png'
+import logo from '../../common/pictures/devshop-logo-white.png'
 import CableIcon from '@mui/icons-material/Cable';
 import FemaleIcon from '@mui/icons-material/Female';
 import MaleIcon from '@mui/icons-material/Male';
@@ -70,7 +70,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft({dark, setDark}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -81,6 +81,14 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleDarkMode = () => {
+    if(dark){
+      setDark(false)
+    }else{
+      setDark(true)
+    }
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -97,11 +105,13 @@ export default function PersistentDrawerLeft() {
           <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" sx={{ mt: 2, flexGrow: 1}}>
-           <img src={devshopLogo} />
+          <img src={logo}/>
           </Typography>
+         
           <Box>
           <Button color="inherit">Login</Button>
           </Box>
+    
         </Toolbar>
       </AppBar>
       <Drawer
@@ -118,7 +128,11 @@ export default function PersistentDrawerLeft() {
         open={open}
       >
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+        <Box sx={{textAlign: 'center'}}>
+          <Typography sx={{fontSize: '10px'}}>Toggle Darkmode</Typography>
+        <Switch onClick={handleDarkMode}  defaultUnchecked  color="primary"/>          
+          </Box>
+        <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>

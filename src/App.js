@@ -21,7 +21,7 @@ function App() {
   );
   return (
     <ThemeProvider theme={theme}>
-      <NavBar />
+      <NavBar dark={dark} setDark={setDark}/>
     </ThemeProvider>
     
   );
