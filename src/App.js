@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import * as React from 'react';
+import { useState } from 'react'
+import useMediaQuery from '@mui/material/useMediaQuery';
+import NavBar from './components/NavBar/NavBar'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 function App() {
+
+  const [dark, setDark] = useState(true);
+
+  const prefersDarkMode = useMediaQuery( dark ? '(prefers-color-scheme: dark )' : '(prefers-color-scheme: light');
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'dark' : 'light',
+        },
+      }
+        ),
+    [prefersDarkMode],
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <NavBar />
+    </ThemeProvider>
+    
   );
 }
 
