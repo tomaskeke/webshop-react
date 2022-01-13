@@ -5,33 +5,38 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import { useContext } from 'react';
+import { BasketContext } from '../../../Context/BasketContext'
+
+
 
 export default function MediaCard() {
-    const [storeItems, setStoreItems] = React.useState([]);
+
+    const { basket, setBasket } = useContext(BasketContext);
+    
     React.useEffect(() => {
-        fetch('https://fakestoreapi.com/products/').then(res=>res.json()).then(res => setStoreItems(res))
+        fetch('https://fakestoreapi.com/products/').then(res=>res.json()).then(res => setBasket(res))
     }, [])
-    console.log(storeItems)
+    console.log(basket)
     
     return (
     <Grid item xs={6}>
-    {storeItems.map(storeItem => {
+    {basket.map(basketItem => {
         return ( 
     <Card sx={{ maxWidth: 345 }}>
     <CardMedia
         component="img"
         height="140"
-        src={storeItem.image}
+        src={basketItem.image}
         alt="green iguana"
     />
     <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-        {storeItem.title}
+        {basketItem.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        {storeItem.description}
+        {basketItem.description}
         </Typography>
     </CardContent>
     <CardActions>

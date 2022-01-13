@@ -9,7 +9,7 @@ const MensClothing = () => {
     })
     return(
         <Paper>
-
+        
         </Paper>
     )
 }

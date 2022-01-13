@@ -2,6 +2,7 @@ import * as React from 'react'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NavBar from '../../general/NavBar/NavBar'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Card from '../../general/Card/Card'
 
 const Layout = () => {
   const [dark, setDark] = React.useState(false);
@@ -23,7 +24,7 @@ const Layout = () => {
         <>
         <ThemeProvider theme={theme}>
         <NavBar dark={dark} setDark={setDark}/>
-         <></> {/* <Outlet /> när routing är på plats. */}
+        {/* outlet here */}
         </ThemeProvider>
         </>
     )
