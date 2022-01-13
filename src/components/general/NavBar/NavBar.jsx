@@ -17,7 +17,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import logo from '../../common/pictures/devshop-logo-white.png'
+import logo from '../pictures/devshop-logo-white.png';
 import CableIcon from '@mui/icons-material/Cable';
 import FemaleIcon from '@mui/icons-material/Female';
 import MaleIcon from '@mui/icons-material/Male';
@@ -130,7 +130,7 @@ export default function PersistentDrawerLeft({dark, setDark}) {
         <DrawerHeader>
         <Box sx={{textAlign: 'center'}}>
           <Typography sx={{fontSize: '10px'}}>Toggle Darkmode</Typography>
-        <Switch onClick={handleDarkMode}  defaultUnchecked  color="primary"/>          
+        <Switch onClick={handleDarkMode} color="primary"/>          
           </Box>
         <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}

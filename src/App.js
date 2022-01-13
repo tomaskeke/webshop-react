@@ -1,28 +1,18 @@
 import * as React from 'react';
-import { useState } from 'react'
-import useMediaQuery from '@mui/material/useMediaQuery';
-import NavBar from './components/NavBar/NavBar'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Layout from './components/Views/Layout/Layout'
+import Accessories from './components/Views/Accessories/Accessories'
+import Electronics from './components/Views/Electronics/Electronics'
+import MensClothing from './components/Views/MensClothing/MensClothing'
+import WomensClothing from './components/Views/WomensClothing/WomensClothing'
+
 function App() {
 
-  const [dark, setDark] = useState(true);
-
-  const prefersDarkMode = useMediaQuery( dark ? '(prefers-color-scheme: dark )' : '(prefers-color-scheme: light');
-
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
-        },
-      } 
-        ),
-    [prefersDarkMode],
-  );
+  
   return (
-    <ThemeProvider theme={theme}>
-      <NavBar dark={dark} setDark={setDark}/>
-    </ThemeProvider>
+  
+    <>
+    <Layout />   {/* Routing när routing är på plats. */}
+    </>
     
   );
 }
