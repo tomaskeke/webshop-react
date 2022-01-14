@@ -19,30 +19,30 @@ export default function MediaCard() {
     //     fetch('https://fakestoreapi.com/products/').then(res=>res.json()).then(res => setProducts(res))
     // }, [])
     return (
-    <Grid item gap={2} sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-    {products.map(productItem => {
-        return ( 
-    <Card sx={{ maxWidth: 345, height: '400px'}} key={productItem.id}>
-    <CardMedia
-        component="img"
-        height="140"
-        src={productItem.image}
-        alt="green iguana"
-    />
-    <CardContent sx={{maxHeight: '200px', overflow: 'hidden', textOverflow: 'ellipsis'}}>
-        <Typography gutterBottom variant="h6" component="div">
-        {productItem.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        {productItem.description}
-        </Typography>
-    </CardContent>
-    <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-    </CardActions>
-    </Card>
- )})}
- </Grid>
-     )
+        <>
+            {products.map(productItem => {
+                return ( 
+                    <Card variant="outlined" sx={{ maxWidth: 345, height: '400px'}} key={productItem.id}>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        src={productItem.image}
+                        alt="green iguana"
+                    />
+                    <CardContent sx={{height: '200px', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+                        <Typography gutterBottom variant="h6" component="div">
+                        {productItem.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                        {productItem.description}
+                        </Typography>
+                    </CardContent>
+                    <CardActions sx={{ justifyContent: 'space-between' }}>
+                        <Button size="small">Read More</Button>
+                        <Button size="small" color='success' variant="contained">Buy</Button>
+                    </CardActions>
+                    </Card>
+                )})}
+        </>
+    )
 }

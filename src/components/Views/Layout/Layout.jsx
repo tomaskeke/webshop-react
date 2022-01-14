@@ -5,7 +5,9 @@ import NavBar from '../../general/NavBar/NavBar'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Electronics from '../Electronics/Electronics';
 import MensClothing from '../MensClothing/MensClothing'
+import WomensClothing from '../WomensClothing/WomensClothing'
 import Jewelery  from '../Jewelery/Jewelery'
+import StartPage from '../StartPage/StartPage'
 
 
 const Layout = () => {
@@ -29,8 +31,9 @@ const Layout = () => {
         <ThemeProvider theme={theme}>
         <NavBar dark={dark} setDark={setDark}/>
         {/* outlet here */}
+        <StartPage />
         </ThemeProvider>
-        <Jewelery />
+       
         </>
     )
 }
