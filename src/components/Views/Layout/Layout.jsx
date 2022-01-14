@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState,} from 'react'
+import { useState } from 'react'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NavBar from '../../general/NavBar/NavBar'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
@@ -8,6 +8,7 @@ import MensClothing from '../MensClothing/MensClothing'
 import WomensClothing from '../WomensClothing/WomensClothing'
 import Jewelery  from '../Jewelery/Jewelery'
 import StartPage from '../StartPage/StartPage'
+import { Box } from '@mui/material';
 
 
 const Layout = () => {
