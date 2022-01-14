@@ -1,16 +1,18 @@
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { Paper } from '@mui/material'
+import { ProductContext } from '../../../Context/ProductContext'
+import Card from '../../general/Card/Card'
+
 
 const MensClothing = () => {
+    const { products, setProducts } = useContext(ProductContext)
     useEffect(() => {
-    fetch(fetch(`https://fakestoreapi.com/products/category/men's%20clothing`)
+    fetch(`https://fakestoreapi.com/products/category/men's%20clothing`)
     .then(res=>res.json())
-    .then(json=>console.log(json)))
-    })
+    .then(res => setProducts(res))
+    }, [])
     return(
-        <Paper>
-        
-        </Paper>
+        <Card key={products.id} />
     )
 }
 

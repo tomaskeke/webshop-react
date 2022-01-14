@@ -21,7 +21,7 @@ import logo from "../pictures/devshop-logo-white.png";
 import CableIcon from "@mui/icons-material/Cable";
 import FemaleIcon from "@mui/icons-material/Female";
 import MaleIcon from "@mui/icons-material/Male";
-import CheckroomIcon from "@mui/icons-material/Checkroom";
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { useContext } from "react";
 import { UserContext } from "../../../Context/UserContext";
 import Tooltip from '@mui/material/Tooltip';
@@ -185,9 +185,9 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
             </ListItem>
             <ListItem button>
               <ListItemIcon>
-                <CheckroomIcon />
+                <AutoAwesomeIcon />
               </ListItemIcon>
-              <ListItemText primary={"Accessories"} />
+              <ListItemText primary={"Jewelry"} />
             </ListItem>
             <ListItem button>
               <ListItemIcon>
@@ -292,9 +292,9 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
             </ListItem>
             <ListItem button>
               <ListItemIcon>
-                <CheckroomIcon />
+                <AutoAwesomeIcon />
               </ListItemIcon>
-              <ListItemText primary={"Accessories"} />
+              <ListItemText primary={"Jewelry"} />
             </ListItem>
             <ListItem button>
               <ListItemIcon>

@@ -4,10 +4,11 @@ import { ProductContext } from '../../../Context/ProductContext'
 import Card from '../../general/Card/Card'
 
 
-const WomensClothing = () => {
+const Jewelery = () => {
     const { products, setProducts } = useContext(ProductContext)
     useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/category/women's%20clothing`)
+    setProducts([]);
+    fetch(`https://fakestoreapi.com/products/category/jewelery`)
     .then(res=>res.json())
     .then(res => setProducts(res))
     }, [])
@@ -16,4 +17,4 @@ const WomensClothing = () => {
     )
 }
 
-export default WomensClothing;
+export default Jewelery;
