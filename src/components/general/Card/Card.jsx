@@ -7,36 +7,34 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { useContext } from 'react';
-import { BasketContext } from '../../../Context/BasketContext'
+import { ProductContext } from '../../../Context/ProductContext'
 
 
 
 export default function MediaCard() {
 
-    const { basket, setBasket } = useContext(BasketContext);
+    const { products, setProducts } = useContext(ProductContext);
     
-    React.useEffect(() => {
-        fetch('https://fakestoreapi.com/products/').then(res=>res.json()).then(res => setBasket(res))
-    }, [])
-    console.log(basket)
-    
+    // React.useEffect(() => {
+    //     fetch('https://fakestoreapi.com/products/').then(res=>res.json()).then(res => setProducts(res))
+    // }, [])
     return (
-    <Grid item xs={6}>
-    {basket.map(basketItem => {
+    <Grid item gap={2} sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+    {products.map(productItem => {
         return ( 
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, height: '400px'}} key={productItem.id}>
     <CardMedia
         component="img"
         height="140"
-        src={basketItem.image}
+        src={productItem.image}
         alt="green iguana"
     />
-    <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-        {basketItem.title}
+    <CardContent sx={{maxHeight: '200px', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+        <Typography gutterBottom variant="h6" component="div">
+        {productItem.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        {basketItem.description}
+        {productItem.description}
         </Typography>
     </CardContent>
     <CardActions>
