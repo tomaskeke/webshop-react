@@ -1,5 +1,5 @@
 import { useEffect, useContext } from 'react'
-import { Paper } from '@mui/material'
+import { Paper, Box, Grid } from '@mui/material'
 import { ProductContext } from '../../../Context/ProductContext'
 import Card from '../../general/Card/Card'
 
@@ -12,7 +12,13 @@ const WomensClothing = () => {
     .then(res => setProducts(res))
     }, [])
     return(
-        <Card key={products.id} />
+        <Box sx={{ flexGrow: 1}}>
+        <Grid container spacing={1}>
+            <Grid container item spacing={3} gap={2} justifyContent="center" alignItems="center">
+                <Card key={products.id} />
+            </Grid>
+            </Grid>
+        </Box>
     )
 }
 

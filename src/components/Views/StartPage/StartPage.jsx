@@ -1,13 +1,15 @@
 import { useEffect, useContext } from 'react'
-import { Paper, Box, Grid } from '@mui/material'
+import { Paper, Box, Grid} from '@mui/material'
+import { experimentalStyled as styled } from '@mui/material/styles';
 import { ProductContext } from '../../../Context/ProductContext'
 import Card from '../../general/Card/Card'
 
 
-const MensClothing = () => {
+const StartPage = () => {
     const { products, setProducts } = useContext(ProductContext)
+
     useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/category/men's%20clothing`)
+    fetch(`https://fakestoreapi.com/products?limit=10`)
     .then(res=>res.json())
     .then(res => setProducts(res))
     }, [])
@@ -22,4 +24,4 @@ const MensClothing = () => {
     )
 }
 
-export default MensClothing
+export default StartPage;
