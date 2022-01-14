@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Divider from '@mui/material/Divider';
 import { useContext } from 'react';
 import { ProductContext } from '../../../Context/ProductContext'
 
@@ -22,21 +23,22 @@ export default function MediaCard() {
         <>
             {products.map(productItem => {
                 return ( 
-                    <Card variant="outlined" sx={{ maxWidth: 345, height: '400px'}} key={productItem.id}>
+                    <Card variant="outlined" sx={{ maxWidth: 250, height: '290px'}} key={productItem.id}>
                     <CardMedia
                         component="img"
                         height="140"
                         src={productItem.image}
                         alt="green iguana"
                     />
-                    <CardContent sx={{height: '200px', overflow: 'hidden', textOverflow: 'ellipsis'}}>
-                        <Typography gutterBottom variant="h6" component="div">
+                    <CardContent sx={{maxHeight: '100px', width: '250px', overflow: 'hidden'}}>
+                        <Typography gutterBottom variant="h6" component="div" width="" sx={{width: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
                         {productItem.title}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="text.secondary" sx={{height: '50px', width: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
                         {productItem.description}
                         </Typography>
                     </CardContent>
+                    <Divider />
                     <CardActions sx={{ justifyContent: 'space-between' }}>
                         <Button size="small">Read More</Button>
                         <Button size="small" color='success' variant="contained">Buy</Button>
