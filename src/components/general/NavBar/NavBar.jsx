@@ -24,9 +24,13 @@ import MaleIcon from "@mui/icons-material/Male";
 import CheckroomIcon from "@mui/icons-material/Checkroom";
 import { useContext } from "react";
 import { UserContext } from "../../../Context/UserContext";
+import Tooltip from '@mui/material/Tooltip';
+import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
+import FaceIcon from "@mui/icons-material/Face";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const drawerWidth = 240;
-
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -98,7 +102,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
     setLoggedIn(false);
     setUser({ username: "" });
     // navigate("/login");
-  }
+  };
 
   const authNav = () => {
     return (
@@ -125,7 +129,16 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
             </Typography>
 
             <Box>
-              <Button onClick={handleLogOut} color="inherit">Logout</Button>
+              <Tooltip title="Logout">
+                <IconButton onClick={handleLogOut}>
+                  <LogoutIcon />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Account">
+                <IconButton>
+                  <FaceIcon />
+                </IconButton>
+              </Tooltip>
             </Box>
           </Toolbar>
         </AppBar>
@@ -223,9 +236,16 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
             </Typography>
 
             <Box>
-              <Button onClick={() => setLoggedIn(true)} color="inherit">Login</Button>
-               {/* loggin here */}
-              <Button color="inherit">Register</Button>
+            <Tooltip title="Login">
+                <IconButton onClick={() => setLoggedIn(true)}>
+                  <LoginIcon />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Register">
+                <IconButton>
+                  <PersonAddIcon />
+                </IconButton>
+              </Tooltip>
             </Box>
           </Toolbar>
         </AppBar>
@@ -299,4 +319,4 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
   };
 
   return <>{loggedIn ? authNav() : unAuthNav()}</>;
-};
+}
