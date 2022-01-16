@@ -9,6 +9,8 @@ import WomensClothing from '../WomensClothing/WomensClothing'
 import Jewelery  from '../Jewelery/Jewelery'
 import StartPage from '../StartPage/StartPage'
 import { Box } from '@mui/material';
+import Account from '../Account/Account';
+import Card from '../../general/Card/Card';
 
 
 const Layout = () => {
@@ -31,6 +33,7 @@ const Layout = () => {
         <>
         <ThemeProvider theme={theme}>
         <NavBar dark={dark} setDark={setDark}/>
+        {/* <Account /> */}
         {/* outlet here */}
         <StartPage />
         </ThemeProvider>
