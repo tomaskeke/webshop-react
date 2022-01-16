@@ -1,11 +1,6 @@
 import { useContext } from "react";
-import Box from "@mui/material/Box";
-import Input from "@mui/material/Input";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormControl from "@mui/material/FormControl";
+import { Box, Paper, Typography} from "@mui/material";
 import TextField from "@mui/material/TextField";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import { UserContext } from "../../../Context/UserContext";
 import Button from "@mui/material/Button";
 
@@ -13,22 +8,19 @@ const Account = () => {
   const { user } = useContext(UserContext);
   return (
     <>
-      <div>
-        <Box
+      <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" width="100%">
+      
+        <Paper elevation={3}
           sx={{
             width: 500,
             height: 500,
-            backgroundColor: "teal",
             display: "flex",
             flexDirection: "column",
-            position: "absolute",
-            top: "30%",
-            left: "40%",
-            justifyContent: 'center',
-            borderRadius: '10px',
-            border: '1px solid darkgreen'
+
+            
           }}
         >
+        <Typography variant="h6" ml={3} mt={3}>Login</Typography>
           <Box
             component="form"
             sx={{
@@ -39,7 +31,7 @@ const Account = () => {
               
             }}
           >
-            <TextField id="standard" label="Username" variant="standard" />
+            <TextField id="standard" label="Username" variant="standard" m={4}/>
             <TextField
               id="standard-password-input"
               label="Password"
@@ -48,10 +40,14 @@ const Account = () => {
               variant="standard"
             />
 
-            <Button sx={{ width: "25ch" }} variant="contained">Contained</Button>
+            <Button sx={{ width: "25ch", mt: 3, }} variant="contained">Login</Button>
           </Box>
-        </Box>
-      </div>
+          <Box width="100%" display="flex" flexDirection="column" alignItems="center">
+          <Typography variant="h6" mt={3}>or</Typography>
+          <Button sx={{ width: "25ch", mt: 3, }} variant="contained">Create account</Button>
+          </Box>
+        </Paper>
+      </Box>
     </>
   );
 };
