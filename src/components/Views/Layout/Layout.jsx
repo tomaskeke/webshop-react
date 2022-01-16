@@ -1,14 +1,21 @@
 import * as React from 'react';
+import { useState } from 'react'
 import useMediaQuery from '@mui/material/useMediaQuery';
-import NavBar from '../../general/NavBar/NavBar';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Card from '../../general/Card/Card';
+import NavBar from '../../general/NavBar/NavBar'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Electronics from '../Electronics/Electronics';
+import MensClothing from '../MensClothing/MensClothing'
+import WomensClothing from '../WomensClothing/WomensClothing'
+import Jewelery  from '../Jewelery/Jewelery'
+import StartPage from '../StartPage/StartPage'
+import { Box } from '@mui/material';
 import Account from '../Account/Account';
+import Card from '../../general/Card/Card';
 
 
 const Layout = () => {
-  const [dark, setDark] = React.useState(false);
-
+  
+  const [dark, setDark] = useState(false);
   const prefersDarkMode = useMediaQuery( dark ? '(prefers-color-scheme: dark )' : '(prefers-color-scheme: light');
 
   const theme = React.useMemo(
@@ -28,7 +35,9 @@ const Layout = () => {
         <NavBar dark={dark} setDark={setDark}/>
         {/* <Account /> */}
         {/* outlet here */}
+        <StartPage />
         </ThemeProvider>
+       
         </>
     )
 }
