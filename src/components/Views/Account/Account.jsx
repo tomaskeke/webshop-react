@@ -12,19 +12,21 @@ const Account = () => {
       
         <Paper elevation={3}
           sx={{
-            width: 500,
-            height: 500,
             display: "flex",
             flexDirection: "column",
+            px: 10,
+            pb: 3,
+            pt: 3,
+            borderRadius: 2,
 
             
           }}
         >
-        <Typography variant="h6" ml={3} mt={3}>Login</Typography>
+        <Typography variant="h6">Login</Typography>
           <Box
             component="form"
             sx={{
-              "& .MuiTextField-root": { m: 2, width: "25ch" },
+              "& .MuiTextField-root": { m: 2},
               display: "flex",
               alignItems: "center",
               flexDirection: "column",
@@ -40,11 +42,11 @@ const Account = () => {
               variant="standard"
             />
 
-            <Button sx={{ width: "25ch", mt: 3, }} variant="contained">Login</Button>
+            <Button sx={{mt: 3 }} variant="contained">Login</Button>
           </Box>
           <Box width="100%" display="flex" flexDirection="column" alignItems="center">
           <Typography variant="h6" mt={3}>or</Typography>
-          <Button sx={{ width: "25ch", mt: 3, }} variant="contained">Create account</Button>
+          <Button sx={{mt: 3 }} variant="contained">Create account</Button>
           </Box>
         </Paper>
       </Box>
