@@ -24,11 +24,12 @@ import MaleIcon from "@mui/icons-material/Male";
 import CheckroomIcon from "@mui/icons-material/Checkroom";
 import { useContext } from "react";
 import { UserContext } from "../../../Context/UserContext";
-import Tooltip from '@mui/material/Tooltip';
+import Tooltip from "@mui/material/Tooltip";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import FaceIcon from "@mui/icons-material/Face";
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import TextField from "@mui/material/TextField";
 
 const drawerWidth = 240;
 
@@ -127,6 +128,20 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
             >
               <img src={logo} />
             </Typography>
+
+            <Box
+              sx={{
+                position: "absolute",
+                top: 6,
+                left: '45%',
+              }}
+            >
+              <TextField
+                id="outlined-search"
+                label="Search field"
+                type="search"
+              />
+            </Box>
 
             <Box>
               <Tooltip title="Logout">
@@ -235,8 +250,22 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
               <img src={logo} />
             </Typography>
 
+            <Box
+              sx={{
+                position: "absolute",
+                top: 6,
+                left: '45%',
+              }}
+            >
+              <TextField
+                id="outlined-search"
+                label="Search field"
+                type="search"
+              />
+            </Box>
+
             <Box>
-            <Tooltip title="Login">
+              <Tooltip title="Login">
                 <IconButton onClick={() => setLoggedIn(true)}>
                   <LoginIcon />
                 </IconButton>
