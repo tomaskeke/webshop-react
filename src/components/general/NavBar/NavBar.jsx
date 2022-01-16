@@ -107,7 +107,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
 
   const authNav = () => {
     return (
-      <Box sx={{ flexGrow: 1,}}>
+      <Box sx={{flexGrow: 1}}>
         <CssBaseline />
         <AppBar position="static" open={open}>
           <Toolbar>
@@ -127,23 +127,16 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
               sx={{ mt: 2, flexGrow: 1 }}
             >
               <img src={logo} />
-            </Typography>
-
-            <Box
-              sx={{
-                position: "absolute",
-                top: 6,
-                left: '45%',
-                marginTop: 1, 
-              }}
-            >
               <TextField
                 id="outlined-search"
                 label="Search"
                 type="search"
                 size="small"
+                sx={{ml: 2,}}
               />
-            </Box>
+            </Typography>
+
+           
 
             <Box>
               <Tooltip title="Logout">
@@ -250,24 +243,16 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
               sx={{ mt: 2, flexGrow: 1 }}
             >
               <img src={logo} />
-            </Typography>
-
-            <Box
-              sx={{
-                position: "absolute",
-                top: 6,
-                left: '45%',
-                marginTop: 1
-              }}
-            >
               <TextField
                 id="outlined-search"
                 label="Search"
                 type="search"
                 size="small"
+                sx={{
+                  ml: 2
+                  }}
               />
-            </Box>
-
+            </Typography>
             <Box>
               <Tooltip title="Login">
                 <IconButton onClick={() => setLoggedIn(true)}>
