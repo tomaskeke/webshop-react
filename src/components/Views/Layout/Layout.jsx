@@ -3,8 +3,9 @@ import { useState } from 'react'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NavBar from '../../general/NavBar/NavBar'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import Account from '../Account/Account';
+import Login from '../Login/Login';
 import StartPage from '../StartPage/StartPage';
+import Basket from '../../general/Basket/Basket';
 
 
 const Layout = () => {
@@ -27,9 +28,10 @@ const Layout = () => {
         <>
         <ThemeProvider theme={theme}>
         <NavBar dark={dark} setDark={setDark}/>
-        {/* <Account /> */}
+        <Login />
         {/* outlet here */}
-        {/* <StartPage /> */}
+        <StartPage />
+        <Basket />
         </ThemeProvider>
        
         </>
