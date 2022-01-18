@@ -4,6 +4,8 @@ import Accessories from "./components/Views/Jewelery/Jewelery";
 import Electronics from "./components/Views/Electronics/Electronics";
 import MensClothing from "./components/Views/MensClothing/MensClothing";
 import WomensClothing from "./components/Views/WomensClothing/WomensClothing";
+import Register from "./components/Views/Register/Register";
+import Login from "./components/Views/Login/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./components/Views/StartPage/StartPage";
 
@@ -18,6 +20,9 @@ function App() {
             <Route path="womens-clothing" element={<WomensClothing />}></Route>
             <Route path="accessories" element={<Accessories />}></Route>
             <Route path="electronics" element={<Electronics />}></Route>
+            <Route path="login" element={<Login />}></Route>
+            <Route path="login/:firstname/:lastname" element={<Login />}></Route>
+            <Route path ="register" element={<Register />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
