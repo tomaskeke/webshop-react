@@ -30,6 +30,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import FaceIcon from "@mui/icons-material/Face";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TextField from "@mui/material/TextField";
+import {Outlet, Link} from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -51,6 +52,11 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     }),
   })
 );
+
+const removeLinkStyling = {
+  textDecoration: 'none',
+  color: 'inherit'
+}
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -300,25 +306,33 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
               <ListItemIcon>
                 <MaleIcon />
               </ListItemIcon>
-              <ListItemText primary={"Men's Clothing"} />
+              <Link style={removeLinkStyling} to="/mens-clothing">
+              <ListItemText primary={"Men's Clothing"}/>
+              </Link>
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <FemaleIcon />
               </ListItemIcon>
+              <Link style={removeLinkStyling} to="/womens-clothing">
               <ListItemText primary={"Women's Clothing"} />
+              </Link>
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <AutoAwesomeIcon />
               </ListItemIcon>
+              <Link style={removeLinkStyling} to="/accessories">
               <ListItemText primary={"Jewelry"} />
+              </Link>
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <CableIcon />
               </ListItemIcon>
+              <Link style={removeLinkStyling} to="/electronics">
               <ListItemText primary={"Electronics"} />
+              </Link>
             </ListItem>
           </List>
           <Divider />
@@ -332,7 +346,9 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
         <Main open={open}>
           <DrawerHeader />
         </Main>
+        <Outlet/>
       </Box>
+      
     );
   };
 

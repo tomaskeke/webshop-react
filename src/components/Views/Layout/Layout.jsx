@@ -27,7 +27,7 @@ const Layout = () => {
         <>
         <ThemeProvider theme={theme}>
         <NavBar dark={dark} setDark={setDark}/>
-        <Account />
+        {/* <Account /> */}
         {/* outlet here */}
         {/* <StartPage /> */}
         </ThemeProvider>
