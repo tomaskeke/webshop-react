@@ -3,9 +3,36 @@ import { Box, Paper, Typography} from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { UserContext } from "../../../Context/UserContext";
 import Button from "@mui/material/Button";
+import { useState} from 'react'
+import { useNavigate, Link, useParams } from 'react-router-dom'
+
+
 
 const Login = () => {
-  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
+  const { firstname, lastname } = useParams()
+  const { loggedIn, setLoggedIn, setUser, user }= useContext(UserContext);
+
+  const [loginUser, setLoginUser] = useState({
+      username: '',
+      password: ''
+  });
+
+  const handleInput = (e) => {
+      setLoginUser({...loginUser, [e.target.name]: e.target.value})
+  }
+
+  const handleLoginUser = (e) => {
+    e.preventDefault();
+    firstname && lastname ? setUser({...loginUser, ...user}, setLoggedIn(true), navigate('/account'))
+    : setUser({...loginUser, ...user, firstname: "Olof", lastname: "elofsson" }, navigate('/account'))
+  }
+  const removeLinkStyling = {
+    textDecoration: 'none',
+    color: 'inherit'
+  }
+
+  console.log(user.username, "from login")
   return (
     <>
       <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" width="100%">
@@ -33,20 +60,23 @@ const Login = () => {
               
             }}
           >
-            <TextField id="standard" label="Username" variant="standard" m={4}/>
+            <TextField id="standard" label="Username" variant="standard" m={4} onChange={handleInput}/>
             <TextField
               id="standard-password-input"
               label="Password"
               type="password"
               autoComplete="current-password"
               variant="standard"
+              onChange={handleInput}
             />
 
-            <Button sx={{mt: 3 }} variant="contained">Login</Button>
+            <Button sx={{mt: 3 }} variant="contained" onClick={handleLoginUser}>Login</Button>
           </Box>
           <Box width="100%" display="flex" flexDirection="column" alignItems="center">
           <Typography variant="h6" mt={3}>or</Typography>
+          <Link style={removeLinkStyling} to={'/register'}>
           <Button sx={{mt: 3 }} variant="contained">Create account</Button>
+          </Link>
           </Box>
         </Paper>
       </Box>
