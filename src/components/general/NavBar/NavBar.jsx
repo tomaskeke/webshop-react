@@ -24,11 +24,13 @@ import MaleIcon from "@mui/icons-material/Male";
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { useContext } from "react";
 import { UserContext } from "../../../Context/UserContext";
+import { BasketContext } from "../../../Context/BasketContext"
 import Tooltip from "@mui/material/Tooltip";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import FaceIcon from "@mui/icons-material/Face";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import TextField from "@mui/material/TextField";
 import {Outlet, Link} from 'react-router-dom'
 
@@ -88,6 +90,9 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const { loggedIn, setLoggedIn, setUser } = useContext(UserContext);
+  const { BasketOpen, setBasketOpen } = useContext(BasketContext);
+
+  const handleBasketOpen = () => setBasketOpen(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -145,6 +150,11 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
            
 
             <Box>
+            <Tooltip title="Basket">
+                <IconButton onClick={handleBasketOpen}>
+                  <ShoppingCartIcon />
+                </IconButton>
+              </Tooltip>
               <Tooltip title="Logout">
                 <IconButton onClick={handleLogOut}>
                   <LogoutIcon />
@@ -260,6 +270,11 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
               />
             </Typography>
             <Box>
+            <Tooltip title="Basket">
+                <IconButton onClick={handleBasketOpen}>
+                  <ShoppingCartIcon />
+                </IconButton>
+              </Tooltip>
               <Tooltip title="Login">
                 <IconButton onClick={() => setLoggedIn(true)}>
                   <LoginIcon />
