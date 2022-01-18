@@ -4,11 +4,9 @@ export const BasketContext = createContext();
 
 const BasketProvider = ({ children }) => {
     const [basket, setBasket] = useState([]);
-    const [basketVisible, setBasketVisible] = useState(false);
-
     return (
         <>
-            <BasketContext.Provider value={{ basket, setBasket, basketVisible, setBasketVisible }}>
+            <BasketContext.Provider value={{ basket, setBasket }}>
                 {children} 
             </BasketContext.Provider>
         </>

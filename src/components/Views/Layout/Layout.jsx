@@ -5,6 +5,7 @@ import NavBar from '../../general/NavBar/NavBar'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Login from '../Login/Login';
 import StartPage from '../StartPage/StartPage';
+import Basket from '../../general/Basket/Basket';
 
 
 const Layout = () => {
@@ -29,7 +30,8 @@ const Layout = () => {
         <NavBar dark={dark} setDark={setDark}/>
         <Login />
         {/* outlet here */}
-        {/* <StartPage /> */}
+        <StartPage />
+        <Basket />
         </ThemeProvider>
        
         </>
