@@ -12,12 +12,19 @@ import Tooltip from '@mui/material/Tooltip';
 import { useContext } from 'react';
 import { ProductContext } from '../../../Context/ProductContext'
 import { BasketContext } from '../../../Context/BasketContext'
-
+import { BadgeContext } from '../../../Context/BadgeContext'
+import { Link } from 'react-router-dom';
 
 export default function MediaCard() {
 
-    const { products, setProducts } = useContext(ProductContext);
+    const { products, setViewProduct, viewProduct } = useContext(ProductContext);
     const { basket, setBasket } = useContext(BasketContext);
+    const { count, setCount } = useContext(BadgeContext);
+
+    const removeLinkStyling = {
+        textDecoration: 'none',
+        color: 'inherit'
+      }
 
     console.log(basket)
     return (
@@ -53,8 +60,10 @@ export default function MediaCard() {
                     </CardActions>
                     <Tooltip title={productItem.title}>
                     <CardActions sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}  >
-                    <Button size="small">Read More</Button>
-                    <Button size="small" color='success' variant="contained" onClick={() => setBasket([...basket, productItem])}>Buy</Button>
+                    <Link style={{removeLinkStyling}} to={"/products"}>
+                    <Button size="small" onClick={() => setViewProduct(productItem)}>Read More</Button>
+                    </Link>
+                    <Button size="small" color='success' variant="contained" onClick={() => setBasket([...basket, productItem], setCount(count + 1))}>Buy</Button>
                     </CardActions>
                     </Tooltip>
                     </Card>
