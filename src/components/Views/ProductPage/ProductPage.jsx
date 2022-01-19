@@ -27,7 +27,7 @@ const ProductPage = () => {
         </Paper>
         <div style={{width: "600px", display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
         
-        <Typography variant="h4" width="20ch" style={{textAlign: 'center'}}>
+        <Typography variant="h6" width="40ch" style={{textAlign: 'center'}}>
         {viewProduct.title}
         </Typography>
         <Box sx={{m: 4, display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
