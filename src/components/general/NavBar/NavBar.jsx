@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import { Paper, Switch } from "@mui/material/";
-import Button from "@mui/material/Button";
+import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -25,6 +25,7 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { useContext } from "react";
 import { UserContext } from "../../../Context/UserContext";
 import { BasketContext } from "../../../Context/BasketContext"
+import { BadgeContext } from '../../../Context/BadgeContext'
 import Tooltip from "@mui/material/Tooltip";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
@@ -33,8 +34,9 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import TextField from "@mui/material/TextField";
 import {Outlet, Link} from 'react-router-dom'
-import Register from "../../Views/Register/Register";
 import { useNavigate } from 'react-router-dom'
+import HomeIcon from '@mui/icons-material/Home';
+
 
 const drawerWidth = 240;
 
@@ -93,6 +95,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
   const [open, setOpen] = React.useState(false);
   const { loggedIn, setLoggedIn, setUser } = useContext(UserContext);
   const { BasketOpen, setBasketOpen } = useContext(BasketContext);
+  const { count } = useContext(BadgeContext);
   const navigate = useNavigate()
 
   const handleBasketOpen = () => setBasketOpen(true);
@@ -155,7 +158,9 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
             <Box>
             <Tooltip title="Basket">
                 <IconButton onClick={handleBasketOpen}>
-                  <ShoppingCartIcon />
+                <Badge color="error" badgeContent={count}>
+                  <ShoppingCartIcon/>
+                </Badge>
                 </IconButton>
               </Tooltip>
               <Tooltip title="Logout">
@@ -200,6 +205,14 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
           </DrawerHeader>
           <Divider />
           <List>
+          <ListItem button>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <Link style={removeLinkStyling} to={"/StartPage"}>
+            <ListItemText primary={"Home"} />
+            </Link>
+          </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <MaleIcon />
@@ -261,7 +274,9 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
               component="div"
               sx={{ mt: 2, flexGrow: 1 }}
             >
+            <Link style={removeLinkStyling} to={"/StartPage"}>
               <img src={logo} />
+              </Link>
               <TextField
                 id="outlined-search"
                 label="Search"
@@ -275,7 +290,9 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
             <Box>
             <Tooltip title="Basket">
                 <IconButton onClick={handleBasketOpen}>
-                  <ShoppingCartIcon />
+                <Badge color="error" badgeContent={count}>
+                  <ShoppingCartIcon/>
+                </Badge>
                 </IconButton>
               </Tooltip>
               <Tooltip title="Login">
@@ -325,6 +342,14 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
           </DrawerHeader>
           <Divider />
           <List>
+          <ListItem button>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <Link style={removeLinkStyling} to={"/StartPage"}>
+            <ListItemText primary={"Home"} />
+            </Link>
+          </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <MaleIcon />
