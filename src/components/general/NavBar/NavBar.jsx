@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
-import { Paper, Switch } from "@mui/material/";
+import { Switch } from "@mui/material/";
 import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";

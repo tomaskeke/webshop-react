@@ -13,13 +13,14 @@ import { useContext } from 'react';
 import { ProductContext } from '../../../Context/ProductContext'
 import { BasketContext } from '../../../Context/BasketContext'
 import { BadgeContext } from '../../../Context/BadgeContext'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function MediaCard() {
 
-    const { products, setViewProduct, viewProduct } = useContext(ProductContext);
+    const { products } = useContext(ProductContext);
     const { basket, setBasket } = useContext(BasketContext);
     const { count, setCount } = useContext(BadgeContext);
+    const navigate = useNavigate();
 
     const removeLinkStyling = {
         textDecoration: 'none',
@@ -59,10 +60,8 @@ export default function MediaCard() {
                     </Box>
                     </CardActions>
                     <Tooltip title={productItem.title}>
-                    <CardActions sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}  >
-                    <Link style={{removeLinkStyling}} to={"/products"}>
-                    <Button size="small" onClick={() => setViewProduct(productItem)}>Read More</Button>
-                    </Link>
+                    <CardActions sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <Button  onClick={() => navigate(`/products/${productItem.id}`)}>Read more</Button>
                     <Button size="small" color='success' variant="contained" onClick={() => setBasket([...basket, productItem], setCount(count + 1))}>Buy</Button>
                     </CardActions>
                     </Tooltip>
