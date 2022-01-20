@@ -19,7 +19,6 @@ const ProductPage = () => {
       .then((res) => setViewProduct(res));
   }, []);
 
-  console.log(viewProduct)
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", flexDirection: "row" }}
