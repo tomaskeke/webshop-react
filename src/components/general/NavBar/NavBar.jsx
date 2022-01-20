@@ -33,8 +33,7 @@ import FaceIcon from "@mui/icons-material/Face";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomeIcon from "@mui/icons-material/Home";
-import { Outlet, Link } from "react-router-dom";
-import Register from "../../Views/Register/Register";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 

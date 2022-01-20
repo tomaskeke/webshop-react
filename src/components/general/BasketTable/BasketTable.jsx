@@ -1,47 +1,68 @@
 import * as React from "react";
-import { DataGrid } from "@mui/x-data-grid";
 import { useContext } from "react";
 import { BasketContext } from "../../../Context/BasketContext";
-import { FormatAlignJustify } from "@mui/icons-material";
-import { Tooltip, Typography, Button } from "@mui/material";
+import { BadgeContext } from "../../../Context/BadgeContext";
+import { Paper, Stack, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 const BasketTable = () => {
   const { basket } = useContext(BasketContext);
+  const { count, setCount } = useContext(BadgeContext);
   const navigate = useNavigate();
-
-  const columns = [
-    { field: "id", headerName: "ID" },
-    { field: "Title", headerName: "Product" },
-    {
-      field: "Price",
-      headerName: "Price",
-      type: "number",
-    },
-  ];
-
-  const rows = [];
-
-  basket.map((item, index) => {
-    return rows.push({
-      id: index + 1,
-      Title: item.title,
-      Price: "$" + item.price,
-    });
-  });
+  let total = 0;
+  basket.map((item) => total += item.price);
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <DataGrid
-        columnBuffer={4}
-        autoHeight={true}
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-      />
-      <Button onClick={() => navigate("/checkout")}>Test</Button>
+    <div
+      style={{
+        height: 400,
+        width: "100%",
+        overflow: "hidden",
+        overflowY: "scroll",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          padding: "20px",
+          maxWidth: "50%",
+        }}
+      >
+        <Typography>Product name:</Typography>
+        <Typography>Price:</Typography>
+      </Box>
+      <Typography textAlign="right" marginRight="25px">total: {total}</Typography>
+      {basket.map((item, i) => {
+        return (
+          <Paper sx={{ maxWidth: "100%", margin: "20px" }} key={(item.id += i)}>
+            <Stack
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "20px",
+              }}
+            >
+              <Typography>{item.title}</Typography>
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <Typography variant="bold">${item.price}</Typography>
+                <IconButton
+                  onClick={() => {
+                    return basket.splice(i, 1), setCount(count - 1);
+                  }}
+                >
+                  <DeleteForeverIcon />
+                </IconButton>
+              </Box>
+            </Stack>
+          </Paper>
+        );
+      })}
     </div>
   );
 };
