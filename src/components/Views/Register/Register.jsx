@@ -76,6 +76,7 @@ const Register = () => {
                     name="username"
                     onChange={handleInput}
                     sx={{m: "10px"}}
+                    required={true}
                   />
                 </FormControl>
                 <FormControl>
@@ -87,6 +88,7 @@ const Register = () => {
                     name="firstname"
                     onChange={handleInput}
                     sx={{m: "10px"}}
+                    required={true}
                   />
                 </FormControl>
                 <FormControl>
@@ -98,6 +100,7 @@ const Register = () => {
                     name="lastname"
                     onChange={handleInput}
                     sx={{m: "10px"}}
+                    required={true}
                   />
                 </FormControl>
               </Box>
@@ -114,6 +117,7 @@ const Register = () => {
                     name="adress"
                     onChange={handleInput}
                     sx={{m: "10px"}}
+                    required={true}
                   />
                 </FormControl>
                 <FormControl>
@@ -125,6 +129,7 @@ const Register = () => {
                     name="zipcode"
                     onChange={handleInput}
                     sx={{m: "10px"}}
+                    required={true}
                   />
                 </FormControl>
                 <FormControl>
@@ -137,6 +142,7 @@ const Register = () => {
                     type="password"
                     onChange={handleInput}
                     sx={{m: "10px"}}
+                    required={true}
                   />
                 </FormControl>
               </Box>
