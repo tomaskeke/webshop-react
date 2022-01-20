@@ -12,7 +12,6 @@ import ProductPage from "./components/Views/ProductPage/ProductPage";
 import Account from "./components/Views/Account/Account";
 import PrivateRoute from "./components/hocs/PrivateRoute";
 import UnPrivateRoute from "./components/hocs/UnPrivateRoute";
-
 function App() {
   return (
     <>

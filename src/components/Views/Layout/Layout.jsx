@@ -29,7 +29,6 @@ const Layout = () => {
         <Outlet />
         <Basket/>
         </ThemeProvider>
-       
         </>
     )
 }
