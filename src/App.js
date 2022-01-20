@@ -35,14 +35,7 @@ function App() {
                 </PrivateRoute>
               }
             ></Route>
-            <Route 
-            path="checkout"
-            element={
-              <UnPrivateRoute>
-                <Checkout />
-              </UnPrivateRoute>
-            }
-            ></Route>
+            <Route path="checkout" element={<Checkout />}></Route>
             <Route
               path="account/:firstname/:lastname"
               element={
