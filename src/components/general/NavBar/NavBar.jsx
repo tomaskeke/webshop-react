@@ -32,6 +32,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import FaceIcon from "@mui/icons-material/Face";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import HomeIcon from '@mui/icons-material/Home';
 import TextField from "@mui/material/TextField";
 import { Outlet, Link } from "react-router-dom";
 import Register from "../../Views/Register/Register";

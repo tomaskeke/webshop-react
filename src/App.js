@@ -8,6 +8,7 @@ import Register from "./components/Views/Register/Register";
 import Login from "./components/Views/Login/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./components/Views/StartPage/StartPage";
+import ProductPage from "./components/Views/ProductPage/ProductPage";
 import Account from "./components/Views/Account/Account";
 import PrivateRoute from "./components/hocs/PrivateRoute";
 import UnPrivateRoute from "./components/hocs/UnPrivateRoute";
@@ -21,6 +22,8 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<StartPage />}></Route>
             <Route path="startpage" element={<StartPage />}></Route>
+            <Route path="products" element={<ProductPage />}></Route>
+            <Route path="products/:id" element={<ProductPage />}></Route>
             <Route path="mens-clothing" element={<MensClothing />}></Route>
             <Route path="womens-clothing" element={<WomensClothing />}></Route>
             <Route path="accessories" element={<Accessories />}></Route>

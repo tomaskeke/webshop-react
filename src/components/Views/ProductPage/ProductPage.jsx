@@ -19,7 +19,6 @@ const ProductPage = () => {
       .then((res) => setViewProduct(res));
   }, []);
 
-  console.log(viewProduct)
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", flexDirection: "row" }}
@@ -43,7 +42,7 @@ const ProductPage = () => {
           flexDirection: "column",
         }}
       >
-        <Typography variant="h6" width="20ch" style={{ textAlign: "center" }}>
+        <Typography variant="h4" width="20ch" style={{ textAlign: "center" }}>
           {viewProduct.title}
         </Typography>
         <Box
