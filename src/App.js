@@ -27,6 +27,7 @@ function App() {
             <Route path="womens-clothing" element={<WomensClothing />}></Route>
             <Route path="accessories" element={<Accessories />}></Route>
             <Route path="electronics" element={<Electronics />}></Route>
+            <Route path="checkout" element={<Checkout />}></Route>
             <Route
               path="account"
               element={
@@ -34,12 +35,6 @@ function App() {
                   <Account />
                 </PrivateRoute>
               }
-            ></Route>
-            <Route 
-            path="checkout"
-            element={
-                <Checkout />
-            }
             ></Route>
             <Route
               path="account/:firstname/:lastname"
