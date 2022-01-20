@@ -1,41 +1,49 @@
-import * as React from 'react';
-import { useContext } from 'react'
-import { BasketContext } from '../../../Context/BasketContext'
-import { Box, Stack, Paper, Button, Typography } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import { BadgeContext } from '../../../Context/BadgeContext'
+import * as React from "react";
+import { DataGrid } from "@mui/x-data-grid";
+import { useContext } from "react";
+import { BasketContext } from "../../../Context/BasketContext";
+import { FormatAlignJustify } from "@mui/icons-material";
+import { Tooltip, Typography, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const BasketTable = () => {
-const { basket, setBasket } = useContext(BasketContext);
-const { count, setCount } = useContext(BadgeContext);
+  const { basket } = useContext(BasketContext);
+  const navigate = useNavigate();
+
+  const columns = [
+    { field: "id", headerName: "ID" },
+    { field: "Title", headerName: "Product" },
+    {
+      field: "Price",
+      headerName: "Price",
+      type: "number",
+    },
+  ];
+
+  const rows = [];
+
+  basket.map((item, index) => {
+    return rows.push({
+      id: index + 1,
+      Title: item.title,
+      Price: "$" + item.price,
+    });
+  });
+
   return (
-    <div style={{ height: 400, width: '100%'}}>
-    <Stack>
-    {basket.map((item, index) => {
-      return (
-        <Box sx={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flexDirection: "row"}}>
-          <Paper width="100%">
-          <Typography>
-          {item.title}
-          </Typography>
-          <Typography>
-          ${item.price}
-          </Typography>
-          <Button onClick={(i) => {
-            const newBasket = basket.filter((items) => items.id !== item.id);
-            setBasket(newBasket)
-            setCount(count - 1)
-            }
-            }>
-            Delete
-          </Button>
-          </Paper>
-        </Box>
-      )
-    })}
-    </Stack>
+    <div style={{ height: 400, width: "100%" }}>
+      <DataGrid
+        columnBuffer={4}
+        autoHeight={true}
+        rows={rows}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        checkboxSelection
+      />
+      <Button onClick={() => navigate("/checkout")}>Test</Button>
     </div>
   );
-}
+};
 
 export default BasketTable;
