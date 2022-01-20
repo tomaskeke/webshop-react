@@ -3,6 +3,7 @@ import { useState } from 'react'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NavBar from '../../general/NavBar/NavBar'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { Outlet } from 'react-router-dom'
 import Basket from '../Basket/Basket';
 
 const Layout = () => {
@@ -25,6 +26,7 @@ const Layout = () => {
         <>
         <ThemeProvider theme={theme}>
         <NavBar dark={dark} setDark={setDark}/>
+        <Outlet />
         <Basket/>
         </ThemeProvider>
        

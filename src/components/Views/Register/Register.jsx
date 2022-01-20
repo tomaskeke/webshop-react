@@ -19,7 +19,7 @@ const Register = () => {
     username: "",
     password: "",
   });
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, setLoggedIn } = useContext(UserContext);
 
   const handleInput = (e) => {
     setRegisterUser({ ...registerUser, [e.target.name]: e.target.value });
@@ -28,7 +28,8 @@ const Register = () => {
     e.preventDefault();
     alert(JSON.stringify(registerUser));
     setUser({ ...user, ...registerUser });
-    navigate(`/login/${registerUser.firstname}/${registerUser.lastname}`);
+    setLoggedIn(true);
+    navigate(`/account/${registerUser.firstname}/${registerUser.lastname}`);
   };
 
   return (

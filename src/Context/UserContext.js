@@ -6,14 +6,15 @@ const UserProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({
     username: "",
-    firstname: "Örjan",
-    lastname: "Svensson",
+    firstname: "",
+    lastname: "",
     adress: "",
     zipcode: "",
     password: "",
   });
 
   console.log(user);
+  console.log(loggedIn)
 
   return (
     <>
