@@ -36,6 +36,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { Outlet, Link } from "react-router-dom";
 import Register from "../../Views/Register/Register";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -96,6 +97,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
   const { BasketOpen, setBasketOpen } = useContext(BasketContext);
   const navigate = useNavigate();
   const { count } = useContext(BadgeContext);
+  const { firstname, lastname } = useParams();
 
   const handleBasketOpen = () => setBasketOpen(true);
 
@@ -161,9 +163,11 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
                 </IconButton>
               </Tooltip>
               <Tooltip title="Account">
+              <Link to="/account">
                 <IconButton>
                   <FaceIcon />
                 </IconButton>
+              </Link>
               </Tooltip>
             </Box>
           </Toolbar>

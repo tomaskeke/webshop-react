@@ -1,18 +1,13 @@
 import { useContext } from 'react';
 import { Box, Typography, Paper } from '@mui/material';
 import { BasketContext } from '../../../Context/BasketContext'
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Rating from '@mui/material/Rating';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
 
 const BasketCard = () => { 
 
-    const { basket, setBasket } = useContext(BasketContext);
+    const { basket } = useContext(BasketContext);
 
 
     return (
