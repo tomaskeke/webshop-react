@@ -8,7 +8,7 @@ import { BadgeContext } from "../../../Context/BadgeContext";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import { Typography } from "@mui/material";
+import { TextField, Typography, Button } from "@mui/material";
 
 const Checkout = () => {
   const { user } = useContext(UserContext);
@@ -16,6 +16,8 @@ const Checkout = () => {
 
   const navigate = useNavigate();
   const filteredBasket = useRemoveArrayDuplicates(basket);
+  let mappedProducts = [];
+  filteredBasket.map(item => mappedProducts.push(item.title + " $"+ item.price))
 
   const [orderFulfilled, setOrderFulfilled] = useState(false);
   const [deliveryInfo, setDeliveryInfo] = useState({
@@ -27,15 +29,12 @@ const Checkout = () => {
     products: [],
   });
 
-  const gridItemStyle = {
-    padding: "0px, 20px",
-  };
 
   const handleInput = (e) => {
     setDeliveryInfo({ ...deliveryInfo, [e.target.name]: e.target.value });
   };
 
-  const { count, setCount } = useContext(BadgeContext);
+  const { setCount } = useContext(BadgeContext);
 
   const sendOrder = (e) => {
     e.preventDefault();
@@ -48,13 +47,12 @@ const Checkout = () => {
   useEffect(() => {
     setDeliveryInfo({
       ...deliveryInfo,
-      username: user.username || "",
       firstname: user.firstname || "",
       lastname: user.lastname || "",
       adress: user.adress || "",
       zipcode: user.zipcode || "",
-      products: filteredBasket,
-    });
+      products: mappedProducts,
+    })
   }, [basket]);
 
   useEffect(() => {
@@ -64,22 +62,22 @@ const Checkout = () => {
   return (
     <>
       <Container maxWidth="sm">
-        <Paper elevation={1}>
-          <div
+        <Paper elevation={1} padding="20px">
+          <Box
             display="flex"
-            flexDirection="column"
-            sx={{ p: 2, border: "1px solid grey", height: "30rem" }}
-          >
-            <Box gridColumn="span 6">
-              <Typography variant="h4" align="center">
+            sx={{ 
+              flexDirection: "column",
+              justifyContent: "center", 
+              height: "30rem" 
+              }}>
+              <Typography variant="h4" align="center" sx={{mt: "20px"}}>
                 Checkout
               </Typography>
-            </Box>
             {orderFulfilled && (
-              <>
-                <p>Thank you for your order!</p>
-                <button onClick={() => navigate("/")}>Return to shop</button>
-              </>
+              <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <Typography variant="p" margin="25px">Thank you for your order!</Typography>
+                <Button variant="contained" onClick={() => navigate("/")}>Return to shop</Button>
+              </Box>
             )}
             {!orderFulfilled && basket.length <= 0 && (
               <>
@@ -88,60 +86,64 @@ const Checkout = () => {
               </>
             )}
             {!orderFulfilled && basket.length > 0 && (
-              <Box>
+              <Box padding="20px">
                 <div>
                   <Container maxWidth="xs">
-                    <Typography variant="h5" align="center">
+                    <Typography variant="h5" align="center" marginBottom="20px">
                       Delivery info
                     </Typography>
                     <form onSubmit={sendOrder}>
-                      <input
-                        name="username"
-                        placeholder="Username"
-                        onChange={handleInput}
-                        value={deliveryInfo.username}
-                        required
-                      />
+                    <Box sx={{display: 'flex', }}>
+                    <Box>
+                        <TextField
+                          name="firstname"
+                          label="firstname"
+                          placeholder="Firstname"
+                          onChange={handleInput}
+                          value={deliveryInfo.firstname}
+                          required
+                          sx={{margin: '5px'}}
+                        />
 
-                      <input
-                        name="firstname"
-                        placeholder="Firstname"
-                        onChange={handleInput}
-                        value={deliveryInfo.firstname}
-                        required
-                      />
-
-                      <input
-                        name="lastname"
-                        placeholder="Lastname"
-                        onChange={handleInput}
-                        value={deliveryInfo.lastname}
-                        required
-                      />
-
-                      <input
+                        <TextField
+                          name="lastname"
+                          label="lastname"
+                          placeholder="Lastname"
+                          onChange={handleInput}
+                          value={deliveryInfo.lastname}
+                          required
+                          sx={{margin: '5px'}}
+                        />
+                    </Box>
+                    <Box>
+                      <TextField
                         name="adress"
+                        label="adress"
                         placeholder="Adress"
                         onChange={handleInput}
                         value={deliveryInfo.adress}
                         required
+                        sx={{margin: '5px'}}
                       />
-
-                      <input
-                        name="zipCode"
-                        placeholder="Zip code"
+                      <TextField
+                        name="zipcode"
+                        label="zip code"
                         onChange={handleInput}
                         value={deliveryInfo.zipcode}
                         required
+                        sx={{margin: '5px'}}
                       />
-
-                      <button type="submit">Send order</button>
+                      </Box>
+                      </Box>
+                      <Box textAlign="center" marginTop="30px">
+                      <Button variant="contained" type="submit">Send order</Button>
+                      </Box>
                     </form>
                   </Container>
                 </div>
               </Box>
             )}
-          </div>
+          </Box>
         </Paper>
       </Container>
     </>
