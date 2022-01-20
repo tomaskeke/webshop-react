@@ -12,6 +12,7 @@ import Account from "./components/Views/Account/Account";
 import PrivateRoute from "./components/hocs/PrivateRoute";
 import UnPrivateRoute from "./components/hocs/UnPrivateRoute";
 
+
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<StartPage />}></Route>
+            <Route path="startpage" element={<StartPage />}></Route>
             <Route path="mens-clothing" element={<MensClothing />}></Route>
             <Route path="womens-clothing" element={<WomensClothing />}></Route>
             <Route path="accessories" element={<Accessories />}></Route>
