@@ -8,7 +8,10 @@ import Register from "./components/Views/Register/Register";
 import Login from "./components/Views/Login/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./components/Views/StartPage/StartPage";
-import ProductPage from './components/Views/ProductPage/ProductPage'
+import Account from "./components/Views/Account/Account";
+import PrivateRoute from "./components/hocs/PrivateRoute";
+import UnPrivateRoute from "./components/hocs/UnPrivateRoute";
+
 
 function App() {
   return (
@@ -22,11 +25,38 @@ function App() {
             <Route path="womens-clothing" element={<WomensClothing />}></Route>
             <Route path="accessories" element={<Accessories />}></Route>
             <Route path="electronics" element={<Electronics />}></Route>
-            <Route path="products" element={<ProductPage />}></Route>
-            <Route path="products/:id" element={<ProductPage />}></Route>
-            <Route path="login" element={<Login />}></Route>
-            <Route path="login/:firstname/:lastname" element={<Login />}></Route>
-            <Route path ="register" element={<Register />}></Route>
+            <Route
+              path="login"
+              element={
+                <UnPrivateRoute>
+                  <Login />
+                </UnPrivateRoute>
+              }
+            ></Route>
+            <Route
+              path="login/:firstname/:lastname"
+              element={
+                <UnPrivateRoute>
+                  <Login />
+                </UnPrivateRoute>
+              }
+            ></Route>
+            <Route
+              path="register"
+              element={
+                <UnPrivateRoute>
+                  <Register />
+                </UnPrivateRoute>
+              }
+            ></Route>
+            <Route
+              path="account"
+              element={
+                <PrivateRoute>
+                  <Account />
+                </PrivateRoute>
+              }
+            ></Route>
           </Route>
         </Routes>
       </BrowserRouter>
