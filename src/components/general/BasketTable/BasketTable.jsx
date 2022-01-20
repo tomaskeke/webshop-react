@@ -37,8 +37,11 @@ const BasketTable = () => {
         <Typography>Price:</Typography>
       </Box>
       <Typography textAlign="right" marginRight="25px">
-        total: {total}
+        total: ${Math.floor(total * 100) / 100}
       </Typography>
+      <Box textAlign="right" marginRight="25px">
+      <Button variant="outlined" onClick={() => navigate("/checkout")}>Checkout</Button>
+      </Box>
       {basket.map((item, i) => {
         return (
           <Paper sx={{ maxWidth: "100%", margin: "20px" }} key={(item.id += i)}>
@@ -66,7 +69,6 @@ const BasketTable = () => {
           </Paper>
         );
       })}
-      <Button onClick={() => navigate("/checkout")}>Checkout</Button>
     </div>
   );
 };
