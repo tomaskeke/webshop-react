@@ -22,11 +22,9 @@ export default function MediaCard() {
     const { count, setCount } = useContext(BadgeContext);
     const navigate = useNavigate();
 
-    const removeLinkStyling = {
-        textDecoration: 'none',
-        color: 'inherit'
-      }
+    const basketID = Math.floor(Math.random() * 100);
 
+    
     console.log(basket)
     return (
         <>
@@ -62,7 +60,7 @@ export default function MediaCard() {
                     <Tooltip title={productItem.title}>
                     <CardActions sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                     <Button  onClick={() => navigate(`/products/${productItem.id}`)}>Read more</Button>
-                    <Button size="small" color='success' variant="contained" onClick={() => setBasket([...basket, productItem], setCount(count + 1))}>Buy</Button>
+                    <Button size="small" color='success' variant="contained" onClick={() => setBasket([...basket, productItem], setCount(count + 1))} >Buy</Button>
                     </CardActions>
                     </Tooltip>
                     </Card>

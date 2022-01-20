@@ -13,7 +13,6 @@ import Account from "./components/Views/Account/Account";
 import Checkout from "./components/Views/Basket/Checkout";
 import PrivateRoute from "./components/hocs/PrivateRoute";
 import UnPrivateRoute from "./components/hocs/UnPrivateRoute";
-
 function App() {
   return (
     <>
