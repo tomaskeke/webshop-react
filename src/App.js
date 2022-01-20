@@ -38,9 +38,9 @@ function App() {
             <Route 
             path="checkout"
             element={
-              <PrivateRoute>
+              <UnPrivateRoute>
                 <Checkout />
-              </PrivateRoute>
+              </UnPrivateRoute>
             }
             ></Route>
             <Route
