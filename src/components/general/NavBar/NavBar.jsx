@@ -21,20 +21,20 @@ import logo from "../pictures/devshop-logo-white.png";
 import CableIcon from "@mui/icons-material/Cable";
 import FemaleIcon from "@mui/icons-material/Female";
 import MaleIcon from "@mui/icons-material/Male";
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { useContext } from "react";
 import { UserContext } from "../../../Context/UserContext";
-import { BasketContext } from "../../../Context/BasketContext"
+import { BasketContext } from "../../../Context/BasketContext";
 import Tooltip from "@mui/material/Tooltip";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import FaceIcon from "@mui/icons-material/Face";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import TextField from "@mui/material/TextField";
-import {Outlet, Link} from 'react-router-dom'
+import { Outlet, Link } from "react-router-dom";
 import Register from "../../Views/Register/Register";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -58,9 +58,9 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 );
 
 const removeLinkStyling = {
-  textDecoration: 'none',
-  color: 'inherit'
-}
+  textDecoration: "none",
+  color: "inherit",
+};
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -93,7 +93,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
   const [open, setOpen] = React.useState(false);
   const { loggedIn, setLoggedIn, setUser } = useContext(UserContext);
   const { BasketOpen, setBasketOpen } = useContext(BasketContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleBasketOpen = () => setBasketOpen(true);
 
@@ -121,7 +121,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
 
   const authNav = () => {
     return (
-      <Box sx={{flexGrow: 1}}>
+      <Box sx={{ flexGrow: 1 }}>
         <CssBaseline />
         <AppBar position="static" open={open}>
           <Toolbar>
@@ -146,14 +146,12 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
                 label="Search"
                 type="search"
                 size="small"
-                sx={{ml: 2,}}
+                sx={{ ml: 2 }}
               />
             </Typography>
 
-           
-
             <Box>
-            <Tooltip title="Basket">
+              <Tooltip title="Basket">
                 <IconButton onClick={handleBasketOpen}>
                   <ShoppingCartIcon />
                 </IconButton>
@@ -268,30 +266,30 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
                 type="search"
                 size="small"
                 sx={{
-                  ml: 2
-                  }}
+                  ml: 2,
+                }}
               />
             </Typography>
             <Box>
-            <Tooltip title="Basket">
+              <Tooltip title="Basket">
                 <IconButton onClick={handleBasketOpen}>
                   <ShoppingCartIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Login">
-              <Link style={removeLinkStyling} to={'/login'}>
-                <IconButton>
-                  <LoginIcon />
-                </IconButton>
-              </Link>
+                <Link style={removeLinkStyling} to={"/login"}>
+                  <IconButton>
+                    <LoginIcon />
+                  </IconButton>
+                </Link>
               </Tooltip>
 
               <Tooltip title="Register">
-              <Link style={removeLinkStyling} to={'/register'}>
-                <IconButton>
-                  <PersonAddIcon />
-                </IconButton>
-                 </Link>
+                <Link style={removeLinkStyling} to={"/register"}>
+                  <IconButton>
+                    <PersonAddIcon />
+                  </IconButton>
+                </Link>
               </Tooltip>
             </Box>
           </Toolbar>
@@ -330,7 +328,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
                 <MaleIcon />
               </ListItemIcon>
               <Link style={removeLinkStyling} to="/mens-clothing">
-              <ListItemText primary={"Men's Clothing"}/>
+                <ListItemText primary={"Men's Clothing"} />
               </Link>
             </ListItem>
             <ListItem button>
@@ -338,7 +336,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
                 <FemaleIcon />
               </ListItemIcon>
               <Link style={removeLinkStyling} to="/womens-clothing">
-              <ListItemText primary={"Women's Clothing"} />
+                <ListItemText primary={"Women's Clothing"} />
               </Link>
             </ListItem>
             <ListItem button>
@@ -346,7 +344,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
                 <AutoAwesomeIcon />
               </ListItemIcon>
               <Link style={removeLinkStyling} to="/accessories">
-              <ListItemText primary={"Jewelry"} />
+                <ListItemText primary={"Jewelry"} />
               </Link>
             </ListItem>
             <ListItem button>
@@ -354,7 +352,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
                 <CableIcon />
               </ListItemIcon>
               <Link style={removeLinkStyling} to="/electronics">
-              <ListItemText primary={"Electronics"} />
+                <ListItemText primary={"Electronics"} />
               </Link>
             </ListItem>
           </List>
@@ -369,9 +367,8 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
         <Main open={open}>
           <DrawerHeader />
         </Main>
-        <Outlet/>
+        <Outlet />
       </Box>
-      
     );
   };
 
