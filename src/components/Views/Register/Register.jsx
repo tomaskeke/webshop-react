@@ -66,67 +66,77 @@ const Register = () => {
               <Box
                 display="flex"
                 flexDirection="column"
-                sx={{ mx: 3, mt: 2, mb: 0 }}
               >
                 <FormControl>
                   <InputLabel htmlFor="my-input">Username</InputLabel>
                   <Input
+                    size="small"
                     id="my-username"
                     aria-describedby="my-helper-text"
                     name="username"
                     onChange={handleInput}
+                    sx={{m: "10px"}}
                   />
                 </FormControl>
                 <FormControl>
                   <InputLabel htmlFor="my-input">Firstname</InputLabel>
                   <Input
+                    size="small"
                     id="my-firstname"
                     aria-describedby="my-helper-text"
                     name="firstname"
                     onChange={handleInput}
+                    sx={{m: "10px"}}
                   />
                 </FormControl>
                 <FormControl>
                   <InputLabel htmlFor="my-input">Lastname</InputLabel>
                   <Input
+                    size="small"
                     id="my-lastname"
                     aria-describedby="my-helper-text"
                     name="lastname"
                     onChange={handleInput}
+                    sx={{m: "10px"}}
                   />
                 </FormControl>
               </Box>
               <Box
                 display="flex"
                 flexDirection="column"
-                sx={{ mx: 3, mt: 1.5, mb: 0 }}
               >
                 <FormControl>
                   <InputLabel htmlFor="my-input">Adress</InputLabel>
                   <Input
+                    size="small"
                     id="my-adress"
                     aria-describedby="my-helper-text"
                     name="adress"
                     onChange={handleInput}
+                    sx={{m: "10px"}}
                   />
                 </FormControl>
                 <FormControl>
                   <InputLabel htmlFor="my-input">Zipcode</InputLabel>
                   <Input
+                    size="small"
                     id="my-zipcode"
                     aria-describedby="my-helper-text"
                     name="zipcode"
                     onChange={handleInput}
+                    sx={{m: "10px"}}
                   />
                 </FormControl>
                 <FormControl>
                   <InputLabel htmlFor="my-input">Password</InputLabel>
                   <Input
+                    size="small"
                     id="my-input"
                     aria-describedby="my-helper-text"
                     name="password"
                     type="password"
                     onChange={handleInput}
+                    sx={{m: "10px"}}
                   />
                 </FormControl>
               </Box>

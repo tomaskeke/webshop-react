@@ -38,9 +38,7 @@ function App() {
             <Route 
             path="checkout"
             element={
-              <UnPrivateRoute>
                 <Checkout />
-              </UnPrivateRoute>
             }
             ></Route>
             <Route
