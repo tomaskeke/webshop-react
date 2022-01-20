@@ -13,7 +13,6 @@ import Account from "./components/Views/Account/Account";
 import PrivateRoute from "./components/hocs/PrivateRoute";
 import UnPrivateRoute from "./components/hocs/UnPrivateRoute";
 
-
 function App() {
   return (
     <>
@@ -29,6 +28,22 @@ function App() {
             <Route path="accessories" element={<Accessories />}></Route>
             <Route path="electronics" element={<Electronics />}></Route>
             <Route
+              path="account"
+              element={
+                <PrivateRoute>
+                  <Account />
+                </PrivateRoute>
+              }
+            ></Route>
+            <Route
+              path="account/:firstname/:lastname"
+              element={
+                <PrivateRoute>
+                  <Account />
+                </PrivateRoute>
+              }
+            ></Route>
+            <Route
               path="login"
               element={
                 <UnPrivateRoute>
@@ -36,28 +51,13 @@ function App() {
                 </UnPrivateRoute>
               }
             ></Route>
-            <Route
-              path="login/:firstname/:lastname"
-              element={
-                <UnPrivateRoute>
-                  <Login />
-                </UnPrivateRoute>
-              }
-            ></Route>
+
             <Route
               path="register"
               element={
                 <UnPrivateRoute>
                   <Register />
                 </UnPrivateRoute>
-              }
-            ></Route>
-            <Route
-              path="account"
-              element={
-                <PrivateRoute>
-                  <Account />
-                </PrivateRoute>
               }
             ></Route>
           </Route>

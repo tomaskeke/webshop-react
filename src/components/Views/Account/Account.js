@@ -3,9 +3,10 @@ import { UserContext } from "../../../Context/UserContext";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-const Account = () => {
-  const { user } = useContext(UserContext);
 
+const Account = () => {
+  const { user, loggedIn } = useContext(UserContext);
+  console.log(loggedIn)
   return (
     <>
       <Container maxWidth="sm">

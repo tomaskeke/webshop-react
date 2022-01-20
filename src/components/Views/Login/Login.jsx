@@ -9,7 +9,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const { firstname, lastname } = useParams();
-  const { setLoggedIn, setUser, user } = useContext(UserContext);
+  const { setLoggedIn, setUser } = useContext(UserContext);
 
   const [loginUser, setLoginUser] = useState({
     username: "",
@@ -22,23 +22,18 @@ const Login = () => {
 
   const handleLoginUser = (e) => {
     e.preventDefault();
-    firstname && lastname
-      ? setUser(
-          { ...loginUser, ...user },
-          setLoggedIn(true),
-          navigate("/account")
-        )
-      : setUser(
-          { ...loginUser, ...user, firstname: "Olof", lastname: "elofsson" },
-          navigate("/account")
-        );
+    setLoggedIn(true);
+    firstname && lastname ? setUser({...loginUser, firstname, lastname})
+    : setUser({...loginUser, firstname: "Olof", lastname: "elofsson" })
+    navigate('/account')
   };
   const removeLinkStyling = {
     textDecoration: "none",
     color: "inherit",
   };
 
-  console.log(user.username, "from login");
+  // console.log(user.username, "from login");
+
   return (
     <>
       <Box
@@ -62,6 +57,7 @@ const Login = () => {
           <Typography variant="h6">Login</Typography>
           <Box
             component="form"
+            onSubmit={handleLoginUser}
             sx={{
               "& .MuiTextField-root": { m: 2 },
               display: "flex",
@@ -72,6 +68,7 @@ const Login = () => {
             <TextField
               id="standard"
               label="Username"
+              name="username"
               variant="standard"
               m={4}
               onChange={handleInput}
@@ -79,6 +76,7 @@ const Login = () => {
             <TextField
               id="standard-password-input"
               label="Password"
+              name="password"
               type="password"
               autoComplete="current-password"
               variant="standard"
@@ -88,7 +86,7 @@ const Login = () => {
             <Button
               sx={{ mt: 3 }}
               variant="contained"
-              onClick={handleLoginUser}
+              type="submit"
             >
               Login
             </Button>

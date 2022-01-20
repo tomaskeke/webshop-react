@@ -142,6 +142,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
               component="div"
               sx={{ mt: 2, flexGrow: 1 }}
             >
+              <Link style={removeLinkStyling} to={"/StartPage"}>
               <img src={logo} />
             </Typography>
 
@@ -207,25 +208,33 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
               <ListItemIcon>
                 <MaleIcon />
               </ListItemIcon>
-              <ListItemText primary={"Men's Clothing"} />
+              <Link style={removeLinkStyling} to="/mens-clothing">
+                <ListItemText primary={"Men's Clothing"} />
+              </Link>
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <FemaleIcon />
               </ListItemIcon>
-              <ListItemText primary={"Women's Clothing"} />
+              <Link style={removeLinkStyling} to="/womens-clothing">
+                <ListItemText primary={"Women's Clothing"} />
+              </Link>
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <AutoAwesomeIcon />
               </ListItemIcon>
-              <ListItemText primary={"Jewelry"} />
+              <Link style={removeLinkStyling} to="/accessories">
+                <ListItemText primary={"Jewelry"} />
+              </Link>
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <CableIcon />
               </ListItemIcon>
-              <ListItemText primary={"Electronics"} />
+              <Link style={removeLinkStyling} to="/electronics">
+                <ListItemText primary={"Electronics"} />
+              </Link>
             </ListItem>
           </List>
           <Divider />
@@ -375,7 +384,6 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
         <Main open={open}>
           <DrawerHeader />
         </Main>
-        <Outlet />
       </Box>
     );
   };
