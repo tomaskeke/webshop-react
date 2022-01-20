@@ -143,7 +143,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
               sx={{ mt: 2, flexGrow: 1 }}
             >
               <Link style={removeLinkStyling} to={"/StartPage"}>
-              <img src={logo} />
+                <img src={logo} />
               </Link>
             </Typography>
 
@@ -161,9 +161,11 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
                 </IconButton>
               </Tooltip>
               <Tooltip title="Account">
-                <IconButton>
-                  <FaceIcon />
-                </IconButton>
+                <Link style={removeLinkStyling} to={"/account"}>
+                  <IconButton>
+                    <FaceIcon />
+                  </IconButton>
+                </Link>
               </Tooltip>
             </Box>
           </Toolbar>

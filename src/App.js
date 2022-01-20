@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./components/Views/StartPage/StartPage";
 import ProductPage from "./components/Views/ProductPage/ProductPage";
 import Account from "./components/Views/Account/Account";
+import Checkout from "./components/Views/Basket/Checkout";
 import PrivateRoute from "./components/hocs/PrivateRoute";
 import UnPrivateRoute from "./components/hocs/UnPrivateRoute";
 
@@ -34,6 +35,14 @@ function App() {
                   <Account />
                 </PrivateRoute>
               }
+            ></Route>
+            <Route 
+            path="checkout"
+            element={
+              <PrivateRoute>
+                <Checkout />
+              </PrivateRoute>
+            }
             ></Route>
             <Route
               path="account/:firstname/:lastname"
