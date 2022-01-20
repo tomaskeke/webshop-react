@@ -144,6 +144,7 @@ export default function PersistentDrawerLeft({ dark, setDark }) {
             >
               <Link style={removeLinkStyling} to={"/StartPage"}>
               <img src={logo} />
+              </Link>
             </Typography>
 
             <Box>
