@@ -6,7 +6,6 @@ import Fade from "@mui/material/Fade";
 import { useContext } from "react";
 import { BasketContext } from "../../../Context/BasketContext";
 import BasketTable from "../../general/BasketTable/BasketTable";
-import Button from "@mui/material/Button";
 
 const Basket = () => {
   const { basket, basketOpen, setBasketOpen } =

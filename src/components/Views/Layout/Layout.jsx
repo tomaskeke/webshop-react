@@ -29,7 +29,6 @@ const Layout = () => {
         <NavBar dark={dark} setDark={setDark}/>
         <Outlet />
         <Basket />
-        <Checkout />
         </ThemeProvider>
         </>
     )

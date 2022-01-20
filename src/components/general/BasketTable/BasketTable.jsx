@@ -6,13 +6,14 @@ import { Paper, Stack, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import Button from "@mui/material/Button";
 
 const BasketTable = () => {
   const { basket } = useContext(BasketContext);
   const { count, setCount } = useContext(BadgeContext);
   const navigate = useNavigate();
   let total = 0;
-  basket.map((item) => total += item.price);
+  basket.map((item) => (total += item.price));
 
   return (
     <div
@@ -35,7 +36,9 @@ const BasketTable = () => {
         <Typography>Product name:</Typography>
         <Typography>Price:</Typography>
       </Box>
-      <Typography textAlign="right" marginRight="25px">total: {total}</Typography>
+      <Typography textAlign="right" marginRight="25px">
+        total: {total}
+      </Typography>
       {basket.map((item, i) => {
         return (
           <Paper sx={{ maxWidth: "100%", margin: "20px" }} key={(item.id += i)}>
@@ -63,6 +66,7 @@ const BasketTable = () => {
           </Paper>
         );
       })}
+      <Button onClick={() => navigate("/checkout")}>Checkout</Button>
     </div>
   );
 };
