@@ -5,7 +5,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import { useContext } from "react";
 import { BasketContext } from "../../../Context/BasketContext";
-import BasketTable from "../../general/BasketTable/BasketTable";
+import BasketCard from "../../general/BasketCard/BasketCard";
 
 const Basket = () => {
   const { basket, basketOpen, setBasketOpen } =
@@ -42,7 +42,7 @@ const Basket = () => {
         >
           <Fade in={basketOpen}>
             <Box sx={style}>
-              {basket.length <= 0 ? "basket is empty!" : <BasketTable />}
+              {basket.length <= 0 ? "basket is empty!" : <BasketCard />}
             </Box>
           </Fade>
         </Modal>
