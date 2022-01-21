@@ -80,10 +80,10 @@ const Checkout = () => {
               </Box>
             )}
             {!orderFulfilled && basket.length <= 0 && (
-              <>
-                <p>You have nothing to order...</p>
-                <button onClick={() => navigate("/")}>Return to shop</button>
-              </>
+              <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <Typography variant="p" margin="25px">You have nothing to order...</Typography>
+                <Button variant="contained" onClick={() => navigate("/")}>Return to shop</Button>
+              </Box>
             )}
             {!orderFulfilled && basket.length > 0 && (
               <Box padding="20px">
